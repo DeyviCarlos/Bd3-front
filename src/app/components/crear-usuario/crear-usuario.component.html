@@ -1,0 +1,111 @@
+<!--
+<div class="main">
+    <div class="inputcontainer">
+        <label class="label">Nombre:</label>
+        <input class="input" type='text' [(ngModel)]='inputNombre'>
+    </div>
+    <div class="inputcontainer">
+        <label class="label">Contraseña:</label>
+        <input class="input" type='password' [(ngModel)]='inputClave'>
+    </div>
+    <div class="inputcontainer">
+        <label class="label">Tipo:</label>
+        <select [(ngModel)]='inputTipo'>
+            <option>Persona Natural</option>
+            <option>Empresa</option>
+        </select>
+    </div>
+    <div class="inputcontainer">
+        <label class="label">Correo:</label>
+        <input class="input" type='text' [(ngModel)]='inputCorreo'>
+    </div>
+    <div class="inputcontainer">
+        <label class="label">Ruc/Dni:</label>
+        <input class="input" type='text' [(ngModel)]='inputRuc'>
+    </div>
+    <div class="inputcontainer">
+        <label class="label">Telefono:</label>
+        <input class="input" type='text' [(ngModel)]='inputTelefono'>
+    </div>
+    <br>
+    <div class="buttoncontainer">
+        <button class="button" (click)='crearUsuario()'>Crear</button>
+        <button class="button" routerLink=''>Volver</button>
+    </div>
+    <div *ngIf='errorCrearUsuario'>
+        El usuario ya existe o uno de los campos no cumple con las condiciones
+    </div>
+</div>-->
+<div class="body-register">
+    <img class="wave" src="./assets/img/wive.png" alt="">
+    <div class="contenedor">
+        <div class="img">
+            <img src="./assets/img/shopping2.svg" alt="">
+        </div>
+        <div class="contenido-register">
+            <form [formGroup]="registerForm" (ngSubmit)="crearUsuario()">
+                <img src="./assets/img/logo.png" alt="">
+                <h2>TiendaRec</h2>
+                <div class="input-div nombre">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Nombre</h5>
+                        <input (focus)="focoInput($event)" (blur)="nofocoInput($event)" formControlName="nombre" id="nombre" class="input" type="text">
+                    </div>
+                </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Contraseña</h5>
+                        <input (focus)="focoInput($event)" (blur)="nofocoInput($event)" formControlName="password" id="password" class="input" type="password">
+                    </div>
+                </div>
+                <div class="inputcontainer">
+                    <label class="label">Tipo:</label>
+                    <select formControlName="tipo" id="tipo" class="input">
+                        <option>{{inputTipo}}</option>
+                        <option>Persona Natural</option>
+                        <option>Empresa</option>
+                    </select>
+                </div>
+                <div class="input-div correo">
+                    <div class="i">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Correo</h5>
+                        <input (focus)="focoInput($event)" (blur)="nofocoInput($event)" formControlName="email" id="email" class="input" type="email">
+                    </div>
+                </div>
+                <div class="input-div correo">
+                    <div class="i">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Ruc/Dni</h5>
+                        <input (focus)="focoInput($event)" (blur)="nofocoInput($event)" formControlName="dni" id="dni" class="input" type="text">
+                    </div>
+                </div>
+                <div class="input-div correo">
+                    <div class="i">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Telefono</h5>
+                        <input (focus)="focoInput($event)" (blur)="nofocoInput($event)" formControlName="telefono" id="telefono" class="input" type="number">
+                    </div>
+                </div>
+
+                <input class="btn" value="Registrar" type="submit">
+                <a routerLink="/tienda/login" class="volver" href="">Login</a>
+                <div *ngIf='errorCrearUsuario'>
+                    El usuario ya existe o uno de los campos no cumple con las condiciones
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

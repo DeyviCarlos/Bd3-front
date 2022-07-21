@@ -1,0 +1,78 @@
+<!--
+<div class="background">
+    <div class="indexcontainerupper">
+        <div class="indexcontainer">
+            <div class="indexfield">
+                <label class="indexlabel">Correo:</label>
+                <br>
+                <input class="indexinput" type='text' [(ngModel)]='inputCorreo'>
+            </div>
+            <br>
+            <div class="indexfield">
+                <label class="indexlabel">Contraseña:</label>
+                <br>
+                <input class="indexinput" type='password' [(ngModel)]='inputClave'>
+            </div>
+            
+            <div>
+                <br>
+            </div>
+            
+            <div *ngIf='noEncontro'>
+            Correo o contraseña incorrectas
+            </div>
+            <div class="indexbuttoncontainer">
+                <button class="indexbutton" (click)='conectar()'>Ingresar</button>
+                <button class="indexbutton" routerLink='crear-usuario'>Crear Usuario</button>
+            </div>
+        </div>
+    </div>
+    
+</div>-->
+<div class="body-logo">
+    <img class="wave" src="./assets/img/wive.png" alt="">
+    <div class="contenedor">
+        <div class="img">
+            <img src="./assets/img/shopping3.svg" alt="">
+        </div>
+        <div class="contenido-login">
+            <form [formGroup]="loginForm" (ngSubmit)="conectar()">
+                <img src="./assets/img/logo.png" alt="">
+                <h2>TiendaRec</h2>
+                <div class="input-div correo">
+                    <div class="i">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Correo</h5>
+                        <input (focus)="focoInput($event)" (blur)="nofocoInput($event)"  type="email" formControlName="email" id="email" class="input">
+                    </div>
+                </div>
+                <div class="text-danger mensaje"
+                    *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+                    <span>El email <strong>es obligatorio</strong></span>
+                </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Contraseña</h5>
+                        <input (focus)="focoInput($event)" (blur)="nofocoInput($event)" formControlName="password" id="password" class="input" type="password">
+                    </div>
+                </div>
+                <div class="text-danger mensaje"
+                    *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+                    <span>El password <strong>es obligatorio</strong></span>
+                </div>
+                <input class="btn" value="Iniciar Sesion" type="submit">
+
+                <div class="enlaces d-flex">
+                    <a class="volver" href=""></a>
+                    <a routerLink="crear-usuario" class="registrate" href="">Registrate</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
